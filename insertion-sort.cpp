@@ -5,10 +5,8 @@
 #include <algorithm>
 using namespace std;
 
-template <typename T>
-void insertion_sort(vector<T>&);
-template <typename T>
-void print_vector(vector<T>&);
+void insertion_sort(vector<int>&);
+void print_vector(vector<int>&);
 
 int main(int argc, char const *argv[]) {
     int arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
@@ -18,8 +16,7 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 
-template <typename T>
-void print_vector(vector<T> &vec) {
+void print_vector(vector<int> &vec) {
     cout << "[";
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i];
@@ -30,10 +27,9 @@ void print_vector(vector<T> &vec) {
     cout << "]" << endl;
 }
 
-template <typename T>
-void insertion_sort(vector<T> &vec) {
+void insertion_sort(vector<int> &vec) {
     for (int j = 1; j < vec.size(); j++) {
-        T key = vec[j];
+        int key = vec[j];
         int i = j - 1;
         while (i >= 0 && vec[i] > key) {    // compare
             vec[i + 1] = vec[i];

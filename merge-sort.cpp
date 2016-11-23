@@ -5,12 +5,9 @@
 #include <algorithm>
 using namespace std;
 
-template <typename T>
-void merge_sort(vector<T>&, int, int);
-template <typename T>
-void merge(vector<T>&, int, int, int);
-template <typename T>
-void print_vector(vector<T>&);
+void merge_sort(vector<int>&, int, int);
+void merge(vector<int>&, int, int, int);
+void print_vector(vector<int>&);
 
 int main(int argc, char const *argv[]) {
     int arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
@@ -20,8 +17,7 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 
-template <typename T>
-void print_vector(vector<T> &vec) {
+void print_vector(vector<int> &vec) {
     cout << "[";
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i];
@@ -32,8 +28,7 @@ void print_vector(vector<T> &vec) {
     cout << "]" << endl;
 }
 
-template <typename T>
-void merge_sort(vector<T> &vec, int low, int high) {
+void merge_sort(vector<int> &vec, int low, int high) {
     if (low < high) {
         int mid = low + ((high - low)/2);
         merge_sort(vec, low, mid);
@@ -42,9 +37,8 @@ void merge_sort(vector<T> &vec, int low, int high) {
     }
 }
 
-template <typename T>
-void merge(vector<T> &vec, int low, int mid, int high) {
-    vector<T> tmp(vec.size());
+void merge(vector<int> &vec, int low, int mid, int high) {
+    vector<int> tmp(vec.size());
     for (int i = low; i <= high; i++) {
         tmp[i] = vec[i];
     }

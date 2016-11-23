@@ -5,10 +5,8 @@
 #include <algorithm>
 using namespace std;
 
-template <typename T>
-void bubble_sort(vector<T>&);
-template <typename T>
-void print_vector(vector<T>&);
+void bubble_sort(vector<int>&);
+void print_vector(vector<int>&);
 
 int main(int argc, char const *argv[]) {
     int arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
@@ -18,8 +16,7 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 
-template <typename T>
-void print_vector(vector<T> &vec) {
+void print_vector(vector<int> &vec) {
     cout << "[";
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i];
@@ -30,12 +27,11 @@ void print_vector(vector<T> &vec) {
     cout << "]" << endl;
 }
 
-template <typename T>
-void bubble_sort(vector<T> &vec) {
+void bubble_sort(vector<int> &vec) {
     for (int i = 0; i < vec.size() - 1; i++) {
         for (int j = vec.size() - 1; j > i; j--) {
             if (vec[j] < vec[j - 1]) {
-                T tmp = vec[j];
+                int tmp = vec[j];
                 vec[j] = vec[j - 1];
                 vec[j - 1] = tmp;
             }
