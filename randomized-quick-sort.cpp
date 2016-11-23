@@ -38,7 +38,7 @@ void rand_quick_sort(vector<float> &vec, int p, int r) {
 }
 
 int rand_partition(vector<float> &vec, int p, int r) {
-    int i = rand() % r + p;
+    int i = p + (rand() % (r - p + 1));
     float tmp = vec[r];
     vec[r] = vec[i];
     vec[i] = tmp;
@@ -61,5 +61,3 @@ int partition(vector<float> &vec, int p, int r) {
     vec[r] = tmp;
     return i + 1;
 }
-
-// bug...
