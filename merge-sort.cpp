@@ -7,7 +7,7 @@ using namespace std;
 
 void merge_sort(vector<int>&, int, int);
 void merge(vector<int>&, int, int, int);
-void print_vector(vector<int>&);
+void print_vector(const vector<int>&);
 
 int main(int argc, char const *argv[]) {
     int arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
     return 0;
 }
 
-void print_vector(vector<int> &vec) {
+void print_vector(const vector<int> &vec) {
     cout << "[";
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i];
