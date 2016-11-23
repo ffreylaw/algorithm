@@ -5,35 +5,29 @@
 #include <algorithm>
 using namespace std;
 
-void rand_quick_sort(vector<float>&, int, int);
+float rand_select(vector<float>&, int, int, int);
 int rand_partition(vector<float>&, int, int);
 int partition(vector<float>&, int, int);
-void print_vector(const vector<float>&);
 
 int main(int argc, char const *argv[]) {
     float arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
     vector<float> vec(arr, arr + sizeof(arr)/sizeof(arr[0]));
-    rand_quick_sort(vec, 0, vec.size() - 1);
-    print_vector(vec);
+    cout << rand_select(vec, 0, vec.size() - 1, 5) << endl;
     return 0;
 }
 
-void print_vector(const vector<float> &vec) {
-    cout << "[";
-    for (int i = 0; i < vec.size(); i++) {
-        cout << vec[i];
-        if (i != vec.size() - 1) {
-            cout << ", ";
-        }
+float rand_select(vector<float> &vec, int p, int r, int i) {
+    if (p == r) {
+        return vec[p];
     }
-    cout << "]" << endl;
-}
-
-void rand_quick_sort(vector<float> &vec, int p, int r) {
-    if (p < r) {
-        int q = rand_partition(vec, p, r);
-        rand_quick_sort(vec, p, q - 1);
-        rand_quick_sort(vec, q + 1, r);
+    int q = rand_partition(vec, p, r);
+    int k = q - p + 1;
+    if (i == k) {
+        return vec[q];
+    } else if (i < k) {
+        return rand_select(vec, p, q - 1, i);
+    } else {
+        return rand_select(vec, q + 1, r, i - k);
     }
 }
 

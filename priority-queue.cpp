@@ -71,6 +71,7 @@ public:
     void heap_increase_key(int i, T key) {
         if (key < vec[i]) {
             cerr << "new key is smaller than current key" << endl;
+            exit(EXIT_FAILURE);
         }
         vec[i] = key;
         while (i > 0 && (vec[parent(i)] < vec[i])) {
