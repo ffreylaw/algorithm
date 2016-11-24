@@ -5,18 +5,18 @@
 #include <algorithm>
 using namespace std;
 
-void insertion_sort(vector<int>&);
-void print_vector(const vector<int>&);
+void insertion_sort(vector<float>&);
+void print_vector(const vector<float>&);
 
 int main(int argc, char const *argv[]) {
-    int arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
-    vector<int> vec(arr, arr + sizeof(arr)/sizeof(arr[0]));
+    float arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
+    vector<float> vec(arr, arr + sizeof(arr)/sizeof(arr[0]));
     insertion_sort(vec);
     print_vector(vec);
     return 0;
 }
 
-void print_vector(const vector<int> &vec) {
+void print_vector(const vector<float> &vec) {
     cout << "[";
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i];
@@ -27,9 +27,9 @@ void print_vector(const vector<int> &vec) {
     cout << "]" << endl;
 }
 
-void insertion_sort(vector<int> &vec) {
+void insertion_sort(vector<float> &vec) {
     for (int j = 1; j < vec.size(); j++) {
-        int key = vec[j];
+        float key = vec[j];
         int i = j - 1;
         while (i >= 0 && vec[i] > key) {
             vec[i + 1] = vec[i];

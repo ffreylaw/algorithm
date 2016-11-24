@@ -5,19 +5,19 @@
 #include <algorithm>
 using namespace std;
 
-void merge_sort(vector<int>&, int, int);
-void merge(vector<int>&, int, int, int);
-void print_vector(const vector<int>&);
+void merge_sort(vector<float>&, int, int);
+void merge(vector<float>&, int, int, int);
+void print_vector(const vector<float>&);
 
 int main(int argc, char const *argv[]) {
-    int arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
-    vector<int> vec(arr, arr + sizeof(arr)/sizeof(arr[0]));
+    float arr[] = {5, 2, 7, 4, 9, 1, 3, 6, 8};
+    vector<float> vec(arr, arr + sizeof(arr)/sizeof(arr[0]));
     merge_sort(vec, 0, vec.size() - 1);
     print_vector(vec);
     return 0;
 }
 
-void print_vector(const vector<int> &vec) {
+void print_vector(const vector<float> &vec) {
     cout << "[";
     for (int i = 0; i < vec.size(); i++) {
         cout << vec[i];
@@ -28,7 +28,7 @@ void print_vector(const vector<int> &vec) {
     cout << "]" << endl;
 }
 
-void merge_sort(vector<int> &vec, int low, int high) {
+void merge_sort(vector<float> &vec, int low, int high) {
     if (low < high) {
         int mid = low + ((high - low)/2);
         merge_sort(vec, low, mid);
@@ -37,8 +37,8 @@ void merge_sort(vector<int> &vec, int low, int high) {
     }
 }
 
-void merge(vector<int> &vec, int low, int mid, int high) {
-    vector<int> tmp(vec.size());
+void merge(vector<float> &vec, int low, int mid, int high) {
+    vector<float> tmp(vec.size());
     for (int i = low; i <= high; i++) {
         tmp[i] = vec[i];
     }
