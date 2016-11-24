@@ -5,15 +5,16 @@
 #include <algorithm>
 using namespace std;
 
+template <class T> struct Node {
+    T key;
+    Node *prev;
+    Node *next;
+};
+
 template <class T> class LinkedList {
-    struct Node {
-        T key;
-        Node *prev;
-        Node *next;
-    };
 private:
-    Node *head;
-    Node *tail;
+    Node<T> *head;
+    Node<T> *tail;
     int size;
 public:
     LinkedList() {
@@ -26,8 +27,16 @@ public:
         return size == 0 ? true : false;
     }
 
+    Node<T> *list_search(T key) {
+        Node<T> *node = head;
+        while (node != NULL && node->key != key) {
+            node = node->next;
+        }
+        return node;
+    }
+
     void list_insert(T x) {
-        Node *node = new Node();
+        Node<T> *node = new Node<T>;
         node->key = x;
         node->next = NULL;
         if (tail == NULL) {
@@ -41,22 +50,23 @@ public:
         size++;
     }
 
-    T list_pop() {
-        if (empty_list()) {
-            cerr << "empty list" << endl;
-            exit(EXIT_FAILURE);
+    void list_delete(Node<T> *node) {
+        if (node->prev != NULL) {
+            node->prev->next = node->next;
+            cout << "1" << endl;
         } else {
-            Node *node = head;
-            T ret = node->key;
-            head = head->next;
-            delete node;
-            size--;
-            return ret;
+            head = node->next;
+            cout << "2" << endl;
         }
+        if (node->next != NULL) {
+            node->next->prev = node->prev;
+            cout << "3" << endl;
+        }
+        size--;
     }
 
     void print() {
-        Node *node = head;
+        Node<T> *node = head;
         int count = 0;
         while (count < size) {
             cout << node->key;
@@ -80,8 +90,8 @@ int main(int argc, char const *argv[]) {
     list.list_insert(10);
     list.list_insert(20);
     list.print();
-    cout << list.list_pop() << endl;
-    cout << list.list_pop() << endl;
+    Node<float> *node = list.list_search(10);
+    list.list_delete(node);
     list.print();
     return 0;
 }
