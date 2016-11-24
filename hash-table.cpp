@@ -42,10 +42,10 @@ public:
 int main(int argc, char const *argv[]) {
     HashTable<string, double> ht;
     ht.insert(pair<string, double>("Jeffrey", 123456));
-    ht.insert(pair<string, double>("Turing", 789));
+    ht.insert(pair<string, double>("Alan", 789));
     ht.print();
     cout << ht["Jeffrey"] << endl;
     cout.precision(0);
-    cout << fixed << ht.hash("Alan") << endl;
+    cout << fixed << ht.hash("Turing") << endl;
     return 0;
 }
