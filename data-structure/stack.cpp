@@ -10,7 +10,7 @@ private:
     vector<T> vec;
     int top;
 public:
-    Stack(vector<T> vec) {
+    Stack(vector<T> &vec) {
         this->vec = vec;
         this->top = vec.size();
     }
@@ -23,7 +23,7 @@ public:
         }
     }
 
-    void push(T x) {
+    void push(T &x) {
         top++;
         vec.insert(vec.begin() + top - 1, x);
     }

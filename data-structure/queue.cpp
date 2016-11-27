@@ -11,19 +11,28 @@ private:
     int head;
     int tail;
 public:
-    Queue(vector<T> vec) {
+    Queue(vector<T> &vec) {
         this->vec = vec;
         this->head = 0;
         this->tail = vec.size() - 1;
     }
 
-    void enqueue(T x) {
-        tail++;
+    void enqueue(T &x) {
+        if (tail == vec.size()) {
+            tail = 0;
+        } else {
+            tail++;
+        }
         vec.insert(vec.begin() + tail, x);
     }
 
     T dequeue() {
-        T x = vec[head++];
+        T x = vec[head];
+        if (head == vec.size()) {
+            head = 0;
+        } else {
+            head++;
+        }
         return x;
     }
 
