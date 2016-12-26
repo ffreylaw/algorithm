@@ -11,7 +11,7 @@ private:
     int heap_size;
 
 public:
-    PriorityQueue(vector<T> vec) {
+    PriorityQueue(vector<T> &vec) {
         this->vec = vec;
         build_max_heap();
     }
