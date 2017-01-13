@@ -5,11 +5,13 @@
 #include <algorithm>
 using namespace std;
 
+// This implementation may be overflow
 template <class T> class Queue {
 private:
     vector<T> vec;
     int head;
     int tail;
+
 public:
     Queue(vector<T> &vec) {
         this->vec = vec;
@@ -46,6 +48,7 @@ public:
         }
         cout << "]" << endl;
     }
+
 };
 
 int main(int argc, char const *argv[]) {

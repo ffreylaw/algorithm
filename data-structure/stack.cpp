@@ -5,10 +5,12 @@
 #include <algorithm>
 using namespace std;
 
+// This implementation may be overflow
 template <class T> class Stack {
 private:
     vector<T> vec;
     int top;
+
 public:
     Stack(vector<T> &vec) {
         this->vec = vec;
@@ -48,6 +50,7 @@ public:
         }
         cout << "]" << endl;
     }
+
 };
 
 int main(int argc, char const *argv[]) {

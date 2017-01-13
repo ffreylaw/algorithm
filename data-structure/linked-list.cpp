@@ -16,6 +16,7 @@ private:
     Node<T> *head;
     Node<T> *tail;
     int size;
+
 public:
     LinkedList() {
         head = NULL;
@@ -82,6 +83,7 @@ public:
         }
         cout << "(null)" << endl;
     }
+    
 };
 
 int main(int argc, char const *argv[]) {

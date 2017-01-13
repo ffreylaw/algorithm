@@ -59,6 +59,7 @@ private:
             delete leaf;
         }
     }
+
 public:
     BinarySearchTree() {
         root = NULL;
@@ -82,6 +83,7 @@ public:
     void destroy_tree() {
         destroy_tree(root);
     }
+    
 };
 
 int main(int argc, char const *argv[]) {

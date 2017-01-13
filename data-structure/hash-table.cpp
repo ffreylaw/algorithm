@@ -9,6 +9,7 @@ using namespace std;
 template <class Key, class Val> class HashTable {
 private:
     unordered_map<Key, Val> map;
+    
 public:
     void insert(const pair<Key, Val> &p) {
         map.insert(p);
@@ -37,6 +38,7 @@ public:
         }
         cout << "]" << endl;
     }
+
 };
 
 int main(int argc, char const *argv[]) {
